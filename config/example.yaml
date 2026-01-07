@@ -1,0 +1,38 @@
+server:
+  port: 8000
+  timeout: 10s
+
+websocket:
+  timeout: 10s
+  pong_wait: 30s
+  ping_period: 15s
+
+database:
+  addr: postgres://postgres:pass@localhost:5432/suscord
+  log_level: silent
+
+redis:
+  addr: localhost:6379
+  password: ""
+  db: 0
+
+broker:
+  addr: amqp://guest:guest@localhost:5672/
+
+cors:
+  origins:
+    - "http://localhost:8001"
+    - "http://127.0.0.1:8001"
+  allowed_methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "PATCH"
+    - "DELETE"
+  allowed_headers:
+    - "Origin"
+    - "Content-Type"
+    - "Authorization"
+
+media:
+  url: /static/
