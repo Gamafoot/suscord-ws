@@ -1,7 +1,6 @@
 package relational
 
 import (
-	"suscord_ws/internal/domain/storage/database"
 	implStorage "suscord_ws/internal/infrastructure/database/relational/storage"
 
 	errors "github.com/pkg/errors"
@@ -34,7 +33,7 @@ func NewConnect(dbURL, log_level string) (*gorm.DB, error) {
 	return db, nil
 }
 
-func NewStorage(dbURL, log_level string) (database.Storage, error) {
+func NewStorage(dbURL, log_level string) (*implStorage.GormStorage, error) {
 	db, err := NewConnect(dbURL, log_level)
 	if err != nil {
 		return nil, errors.WithStack(err)
